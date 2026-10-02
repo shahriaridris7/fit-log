@@ -15,14 +15,14 @@ export const getFitlog = async () => {
 const LibrarySection =async () => {
     const data= await getFitlog();
     return (
-        <div className='container mx-auto m-6 p-10'>
+        <div className='container mx-auto m-6 p-14'>
             <div>
                 <h1 className='text-4xl font-medium'>THE LIBRARY</h1>
             </div>
             <div>
                 <h1 className='text-sm text-gray-500'>Twelve lifts covering every major muscle group.</h1>
             </div>
-            <div className='grid grid-cols-3 p-2 gap-2  justify-center items-center'> 
+            <div className='grid grid-cols-3 gap-4 p-4 justify-center items-center'> 
            {
             
            

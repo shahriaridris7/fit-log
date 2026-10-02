@@ -1,11 +1,12 @@
 import React from 'react';
+import LibrarySection from '../component/LibrarySection';
 
-const page = () => {
+const   WorkoutPage = () => {
     return (
         <div>
-            
+            <LibrarySection/>
         </div>
     );
 };
 
-export default page;
+export default  WorkoutPage;
