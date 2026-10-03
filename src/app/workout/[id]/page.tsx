@@ -19,7 +19,7 @@ const DetailsPage = async ({ params }: IDetailsPageProps) => {
 console.log(id);
   return (
    
-    <div className=" container mx-auto min-h-screen bg-[#0d0f12] text-white p-6 md:p-12 font-sans flex justify-center items-center">
+    <div className=" container mx-auto min-h-screen bg-[##13151c] text-white p-6 md:p-12 font-sans flex justify-center items-center">
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         
         <div className="relative rounded-2xl overflow-hidden aspect-square w-full">

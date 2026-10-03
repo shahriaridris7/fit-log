@@ -18,7 +18,7 @@ const Card =  ({item}:Iitemprops) => {
 
     return (
         <Link href={`/workout/${item.id}`}> 
-       <div className=" w-full card bg-base-300 shadow-sm hover:-translate-y-1">
+       <div className=" w-full card bg-[#13151b] shadow-sm hover:-translate-y-1">
   <figure>
     <Image src={item.image} width={300} height={160} alt={item.name} className='w-full h-64 object-cover'/>
   </figure>

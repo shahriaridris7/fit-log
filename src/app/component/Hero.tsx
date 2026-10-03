@@ -5,7 +5,7 @@ const Hero = () => {
     return (
       <div className='container mx-auto gap-4 p-10'>
 
-        <div className=" hero bg-base-300 ">
+        <div className=" hero bg-[#13151c] ">
   <div className="hero-content flex-col lg:flex-row-reverse">
    <Image src={logo} alt="Banner" width={334} height={334}/>
     <div>
