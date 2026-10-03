@@ -24,8 +24,19 @@ const PlanContext =createContext < PlanContextType | null >(null);
 
  export const PlanContextProvider = ({children}:{children: React.ReactNode}) => {
     
-    
+    const [MyPlanFolder, setPlan] = useState<PlanWorkout[]>([]);
+  const [SavedFolder, setSaved] = useState<Workout[]>([]);
 
+   const AddToSaved =(workout: Workout)=>{
+     if(MyPlanFolder.length>5){
+      toast.error("Today's plan is full! (Max 5)");
+      return;
+     }
+    
+   }
+
+
+   
 
 
 
