@@ -27,14 +27,33 @@ const PlanContext =createContext < PlanContextType | null >(null);
     const [MyPlanFolder, setPlan] = useState<PlanWorkout[]>([]);
   const [SavedFolder, setSaved] = useState<Workout[]>([]);
 
-   const AddToSaved =(workout: Workout)=>{
+   const AddToPlan =(workout: Workout)=>{
      if(MyPlanFolder.length>5){
       toast.error("Today's plan is full! (Max 5)");
       return;
      }
-    
-   }
 
+     if(MyPlanFolder.some((item)=> item.id===workout.id)){
+       toast.error("Already in today's plan");
+       return;
+     }
+     setPlan((prev)=>[...prev, { ...workout, isDone: false }])
+     toast.success("${workout.name} added to plan!")
+    
+   };
+   const AddToSaved = (workout: Workout) => {
+    
+    if (SavedFolder.some((item) => item.id === workout.id)) {
+      toast.error("Already saved!");
+      return;
+    }
+
+    setSaved((prev) => [...prev, workout]);
+    toast.success(`${workout.name} saved for later!`);
+  };
+  const RemoveFromPlan =(id : number) => {
+   setPlan((prev)=> prev.filter ((item)=> item.id != id));
+  };
 
    
 
