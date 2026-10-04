@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '@/app/Image/banner.png'
 import Image from 'next/image';
+import Link from 'next/link';
 const Hero = () => {
     return (
       <div className='container mx-auto gap-4 p-10'>
@@ -21,7 +22,7 @@ const Hero = () => {
         <br />
         into today's plan, and watch the week's work add up.
       </p>
-      <button className="m-1 btn btn-neutral text-black bg-lime-500">BROWSE WORKOUTS</button>
+      <Link href="/workout"><button className="m-1 btn btn-neutral text-black bg-lime-500">BROWSE WORKOUTS</button></Link>
     </div>
   </div>
 </div>

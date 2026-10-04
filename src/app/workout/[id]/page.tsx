@@ -1,3 +1,6 @@
+
+import Addtoplanbtn from '@/app/component/button/Addtoplanbtn';
+import Addtosavebtn from '@/app/component/button/Addtosavebtn';
 import Card from '@/app/component/Card';
 import { getFitlog } from '@/app/component/LibrarySection';
 import { Workout } from '@/app/type.ts';
@@ -11,13 +14,15 @@ interface IDetailsPageProps {
 }
 
 const DetailsPage = async ({ params }: IDetailsPageProps) => {
+  
   const { id } = await params;
   const data = await getFitlog();
 
   
   const item = data.find((item:Workout) => Number(item.id) == Number(id)) as Workout;
 console.log(id);
-  return (
+ 
+return (
    
     <div className=" container mx-auto min-h-screen bg-[##13151c] text-white p-6 md:p-12 font-sans flex justify-center items-center">
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -102,14 +107,8 @@ console.log(id);
 
           {/* Buttons */}
           <div className="flex gap-4 pt-2">
-            <button className="flex-1 bg-[#c2f970] text-black font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm hover:opacity-90">
-              < h1 className="w-4 h-4" />
-              Add to today's plan
-            </button>
-            <button className="border border-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm hover:border-gray-500">
-              <h1 className="w-4 h-4" />
-              Save for later
-            </button>
+            <Addtoplanbtn plan={item as Workout} />
+            <Addtosavebtn plan={item as Workout}/>
           </div>
 
         </div>

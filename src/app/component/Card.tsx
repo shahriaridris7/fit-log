@@ -1,5 +1,4 @@
 import React from 'react';
-import { getFitlog } from './LibrarySection';
 import Image from 'next/image';
 import { Workout } from '../type.ts';
 import { CiClock1 } from "react-icons/ci";
@@ -14,13 +13,13 @@ export interface Iitemprops{
 
 const Card =  ({item}:Iitemprops) => {
     
-     
+   
 
     return (
         <Link href={`/workout/${item.id}`}> 
        <div className=" w-full card bg-[#13151b] shadow-sm hover:-translate-y-1">
   <figure>
-    <Image src={item.image} width={300} height={160} alt={item.name} className='w-full h-64 object-cover'/>
+    <Image src={item.image} width={300} height={160} alt={item.name} loading="eager" className='w-full h-64 object-cover'/>
   </figure>
  <div>
      <div className="m-2 flex flex-wrap gap-2">

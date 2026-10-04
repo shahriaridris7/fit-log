@@ -1,5 +1,5 @@
 'use client'
-import {  createContext, useState } from 'react';
+import {  createContext, useContext, useState } from 'react';
 import React  from 'react';
 import { PlanWorkout, Workout } from '../type.ts';
 import toast from 'react-hot-toast';
@@ -28,7 +28,7 @@ const PlanContext =createContext < PlanContextType | null >(null);
   const [SavedFolder, setSaved] = useState<Workout[]>([]);
 
    const AddToPlan =(workout: Workout)=>{
-     if(MyPlanFolder.length>5){
+     if(MyPlanFolder.length>=5){
       toast.error("Today's plan is full! (Max 5)");
       return;
      }
@@ -38,7 +38,7 @@ const PlanContext =createContext < PlanContextType | null >(null);
        return;
      }
      setPlan((prev)=>[...prev, { ...workout, isDone: false }])
-     toast.success("${workout.name} added to plan!")
+     toast.success(`${workout.name} added to plan!`)
     
    };
    const AddToSaved = (workout: Workout) => {
@@ -75,7 +75,7 @@ const PlanContext =createContext < PlanContextType | null >(null);
     minutes: MyPlanFolder.reduce((total, item) => total + item.duration, 0),
     calories: MyPlanFolder.reduce((total, item) => total + item.caloriesBurned, 0),
   };
-
+  
     const value: PlanContextType = {
     MyPlanFolder,
     SavedFolder,
@@ -92,4 +92,14 @@ const PlanContext =createContext < PlanContextType | null >(null);
     );
 };
 
-export default PlanContext;
+export const usePlan = () => {
+  const context = useContext(PlanContext);
+
+  if (!context) {
+    throw new Error(
+      "usePlan must be used inside PlanContextProvider"
+    );
+  }
+
+  return context;
+};
