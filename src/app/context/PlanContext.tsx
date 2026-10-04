@@ -49,15 +49,32 @@ const PlanContext =createContext < PlanContextType | null >(null);
     }
 
     setSaved((prev) => [...prev, workout]);
-    toast.success(`${workout.name} saved for later!`);
+    toast.success(`${workout.name} added to the saved folder`);
   };
   const RemoveFromPlan =(id : number) => {
    setPlan((prev)=> prev.filter ((item)=> item.id != id));
+   toast.success("Removed from Saved")
+  };
+  const RemoveFromSaved =(id : number) => {
+   setSaved((prev)=> prev.filter ((item)=> item.id != id));
+   toast.success("Removed from Plan");
   };
 
-   
+   const MarkAsDone = (id: number) => {
+    setPlan((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, isDone: true } : item
+      )
+    );
+    toast.success("Workout done!");
+  };
 
-
+  
+  const metrics = {
+    exercises: MyPlanFolder.length,
+    minutes: MyPlanFolder.reduce((total, item) => total + item.duration, 0),
+    calories: MyPlanFolder.reduce((total, item) => total + item.caloriesBurned, 0),
+  };
 
     const value: PlanContextType = {
     MyPlanFolder,
