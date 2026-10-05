@@ -4,9 +4,11 @@ import Link from 'next/link';
 import React from 'react';
 import logo from '@/app/Image/logo.png'
 import { usePathname } from 'next/navigation';
+import { usePlan } from '../context/PlanContext';
 
 
 const Navbar = () => {
+     const {MyPlanFolder,SavedFolder}= usePlan();
     const pathname=usePathname();
     const links=
     <>
@@ -16,7 +18,7 @@ const Navbar = () => {
     <Link href='/myplan'  className={pathname === "/myplan" ? "rounded-md bg-lime-900 px-4  font-medium text-lime-400" : ""}>My plan </Link>
     </>
     return (
-       <div className="navbar  shadow-sm">
+       <div className="navbar  shadow-sm container mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,8 +49,14 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     <div className="flex gap-2">
-      <Link href='/plan' className="btn-sm ">Plan</Link>
-      <Link href='/saved' className="btn-sm ">Saved</Link>
+      <Link href='/plan'>Plan 
+       <div className="w-8 h-8 rounded-full flex items-center justify-center text-white">
+  {MyPlanFolder.length}
+</div></Link>
+      <Link href='/saved' className="btn-sm flex justify-center items-center gap-2">Saved
+      <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+  {SavedFolder.length}
+</div> </Link>
      
     </div>
   </div>

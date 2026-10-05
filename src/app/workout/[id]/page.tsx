@@ -1,7 +1,7 @@
 
 import Addtoplanbtn from '@/app/component/button/Addtoplanbtn';
 import Addtosavebtn from '@/app/component/button/Addtosavebtn';
-import Card from '@/app/component/Card';
+
 import { getFitlog } from '@/app/component/LibrarySection';
 import { Workout } from '@/app/type.ts';
 import Image from 'next/image';
@@ -37,9 +37,9 @@ return (
           />
         </div>
 
-        {/* Right Side: Details */}
+        
         <div className="flex flex-col gap-6">
-          {/* Header & Badges */}
+        
           <div>
             <h1 className="text-3xl font-extrabold tracking-wide uppercase mb-2">
               {item.name}
