@@ -4,6 +4,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { usePlan } from "@/app/context/PlanContext";
+import Link from "next/link";
+import EmptyState from "../component/statecomponent/EmptyState";
 
 export default function Page() {
   const {
@@ -16,10 +18,13 @@ export default function Page() {
   } = usePlan();
 
   const [activeTab, setActiveTab] = useState("plan");
+  
 
   const workouts =
     activeTab === "plan" ? MyPlanFolder : SavedFolder;
 
+ 
+ 
   return (
     <div className="min-h-screen bg-[#0d0f14] text-white">
       <div className="container mx-auto max-w-6xl p-6">
@@ -84,7 +89,7 @@ export default function Page() {
           {workouts.length === 0 ? (
             <div className="rounded-xl border border-gray-800 p-10 text-center text-gray-500">
               {activeTab === "plan"
-                ? "No workouts in today's plan."
+                ? <EmptyState></EmptyState>
                 : "No saved workouts yet."}
             </div>
           ) : (

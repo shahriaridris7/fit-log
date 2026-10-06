@@ -48,13 +48,13 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <div className="flex gap-2">
-      <Link href='/plan'>Plan 
-       <div className="w-8 h-8 rounded-full flex items-center justify-center text-white">
+    <div className="flex  gap-2">
+      <Link href='../myplan' className="btn-sm flex justify-center items-center gap-2" >Plan 
+       <div className="w-8 h-8 rounded-full bg-[#ccff00] flex items-center justify-center text-white">
   {MyPlanFolder.length}
 </div></Link>
-      <Link href='/saved' className="btn-sm flex justify-center items-center gap-2">Saved
-      <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+      <Link href='../myplan' className="btn-sm flex justify-center items-center gap-2">Saved
+      <div className="w-8 h-8 rounded-full bg-gray-950 flex items-center justify-center text-white">
   {SavedFolder.length}
 </div> </Link>
      
